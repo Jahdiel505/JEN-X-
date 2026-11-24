@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEN-X STEM AI GH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif
+    }
+
+    body {
+      background: #0d024b;
+      color: white;
+      padding: 15px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(circle at 30% 40%, #38bdf822 0%, transparent 50%), radial-gradient(circle at 80% 70%, #a855f722 0%, transparent 50%), linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      animation: grid 6s linear infinite
+    }
+
+    @keyframes grid {
+      0% {
+        background-position: 0 0, 0 0, 0 0, 0 0
+      }
+
+      100% {
+        background-position: 0 0, 0 0, 0 40px, 40px 0
+      }
+    }
+
+    body::after {
+      content: "🧬 ⚛️ 💻  🧪 🚀 🔬";
+      position: fixed;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      font-size: 22px;
+      letter-spacing: 60px;
+      opacity: 0.12;
+      z-index: -1;
+      animation: fall 25s linear infinite
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0)
+      }
+
+      100% {
+        transform: translateY(110vh)
+      }
+    }
+
+    header {
+      text-align: center;
+      max-width: 800px;
+      margin: 15px auto
+    }
+
+    header h1 {
+      font-size: 34px;
+      background: linear-gradient(90deg, #d7dbdd, #e9e7f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    header p {
+      color: #c9d2df;
+      margin-top: 8px;
+      line-height: 1.5;
+      font-size: 13px
+    }
+
+    .master {
+      max-width: 900px;
+      margin: 15px auto;
+      display: flex;
+      gap: 8px;
+      background: #1e294b;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid #334155
+    }
+
+    .master input {
+      flex: 1;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid #2168cc !important;
+      ;
+      background: #0f172a;
+      color: rgb(236, 230, 230);
+      outline: none;
+      font-size: 15px
+    }
+
+    .master button {
+      padding: 13px 12px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .btn-run {
+      background: #5538f8;
+      color: rgb(233, 227, 227)
+    }
+
+    .btn-mic {
+      background: #a78bfa;
+      color: white
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 1200px;
+      margin: auto
+    }
+
+    @media(max-width:700px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .box {
+      background: #1e294bCC;
+      backdrop-filter: blur(8px);
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      min-height: 320px
+    }
+
+    .box h2 {
+      color: #38bdf8;
+      font-size: 16px
+    }
+
+    .box input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 8px;
+      background: #0f172a;
+      color: white;
+      outline: none
+    }
+
+    .btns {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      flex-wrap: wrap
+    }
+
+    .btns button {
+      flex: 1;
+      padding: 9px 8px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      min-width: 45px
+    }
+
+    .ask {
+      background: transparent;
+      border: 1px solid #2168cc !important;
+      color: rgb(236, 232, 232)
+    }
+
+    .mic {
+      background: #0e89db;
+      color: rgb(218, 157, 157)
+    }
+
+    .play {
+      background: transparent;.0
+      
+      border: 1px solid #2168cc0important;
+      font-size: medium;
+      color: rgb(248, 243, 243)
+    }
+
+    .clear {
+      background: transparent;
+      border: 1px solid #2168cc !important;
+      color: #f4f1f5 !important
+    }
+
+    .answer {
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 8px;
+      white-space: pre-wrap;
+      min-height: 80px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #dee8eb;
+      flex: 1;
+      overflow: auto
+    }
+
+    .social {
+      text-align: center;
+      margin-top: 25px
+    }
+
+    .social a {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      color: white;
+      font-size: 14px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>JEN-X 🧠 STEM AI GH</h1>
+    <p>One Web, Four Brains. Master search runs 4 AIs at once. Tap 🎤 to speak, 🔊 to hear answer.</p>
+  </header>
+
+  <div class="master">
+    <input id="masterQ" placeholder="Ask all 4 e.g.what are vectors?">
+
+    <button class="btn-run" onclick="searchAll4()">Run X4</button>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h2>S - Science</h2>
+      <input id="sciQ" placeholder="Science question">
+      <div class="btns">
+        <button class="ask" onclick="askOne('sciQ','sciAns','science')">Ask</button>
+
+        <button class="play" onclick="speakAnswer('sciAns')">🔊</button>
+        <button class="clear" onclick="clearBox('sciAns')">Clear</button>
+      </div>
+      <div id="sciAns" class="answer">...</div>
+    </div>
+
+    <div class="box">
+      <h2>T - Tech</h2>
+      <input id="techQ" placeholder="Tech / code question">
+      <div class="btns">
+        <button class="ask" onclick="askOne('techQ','techAns','technology')">Enter</button>
+
+        <button class="play" onclick="speakAnswer('techAns')">🔊</button>
+        <button class="clear" onclick="clearBox('techAns')">Clear</button>
+      </div>
+      <div id="techAns" class="answer">...</div>
+    </div>
+
+    <div class="box">
+      <h2>E - Engineering</h2>
+      <input id="engQ" placeholder="e.g. F=m*a">
+      <div class="btns">
+        <button class="ask" onclick="askOne('engQ','engAns','engineering')">Enter</button>
+
+        <button class="play" onclick="speakAnswer('engAns')">🔊</button>
+        <button class="clear" onclick="clearBox('engAns')">Clear</button>
+      </div>
+      <div id="engAns" class="answer">...</div>
+    </div>
+
+    <div class="box">
+      <h2>M - Maths</h2>
+      <input id="mathQ" placeholder="e.g. 2x+5=15">
+      <div class="btns">
+        <button class="ask" onclick="askOne('mathQ','mathAns','maths')">Solve</button>
+
+        <button class="play" onclick="speakAnswer('mathAns')">🔊</button>
+        <button class="clear" onclick="clearBox('mathAns')">Clear</button>
+      </div>
+      <div id="mathAns" class="answer">...</div>
+    </div>
+  </div>
+
+  <div class="social">
+    <a href="https://wa.me/233208456850?text=Hi%20Xperience%20I%20need%20help" target="_blank" style="background:#25D366">💬
+    </a>
+    <a href="https://instagram.com/jahdieladjei.boateng" target="_blank"
+      style="background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf)">📸 </a>
+    <br>
+    <p style="margin-top:10px;color:#cbd8e9;font-size:12px">Learn Science 🚀 Explore
+      Tech 💻 Build Eng 🔧 Master Maths ➗</br>
+    </p>
+
+    <p style="margin-top: 10px;color:#d2d8df;font-size: 15px">Developed & Powered by Jahdiel - JEN-X Technologies
+      👷🏾‍♂️
+    </p>
+  </div>
+
+  <script>
+    // ===== CLEAR =====si
+    function clearBox(id) { document.getElementById(id).innerText = 'Cleared'; window.speechSynthesis.cancel(); }
+
+    // ===== VOICE AI =====
+
+
+    function speakAnswer(id) {
+      const t = document.getElementById(id).innerText;
+      if (!t || t.includes('Waiting') || t.includes('Cleared')) return alert('No answer yet');
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t); u.lang = 'en-US'; u.rate = 0.95;
+      const vs = window.speechSynthesis.getVoices();
+      const v = vs.find(v => v.name.includes('Google') && v.lang.includes('en')) || vs[0];
+      if (v) u.voice = v;
+      window.speechSynthesis.speak(u);
+    }
+    function stopVoice() { window.speechSynthesis.cancel(); }
+
+    // ===== 4 POLLINATIONS ASYNC FETCHES =====
+    async function fetchScience(q) { const r = await fetch(`https://text.pollinations.ai/${encodeURIComponent('You are polite Science tutor. Explain: ' + q + ' in 70 words')}`); return await r.text(); }
+    async function fetchTechnology(q) { const r = await fetch(`https://text.pollinations.ai/${encodeURIComponent('You are Tech assistant. Answer: ' + q + ' in 70 words')}`); return await r.text(); }
+    async function fetchEngineering(q) { const r = await fetch(`https://text.pollinations.ai/${encodeURIComponent('You are Engineering tutor. Solve with formula steps: ' + q)}`); return await r.text(); }
+    async function fetchMaths(q) { const r = await fetch(`https://text.pollinations.ai/${encodeURIComponent('You are Maths teacher. Solve step by step: ' + q)}`); return await r.text(); }
+
+    async function askOne(inputId, ansId, type) {
+      const q = document.getElementById(inputId).value.trim();
+      const box = document.getElementById(ansId);
+      if (!q) { box.innerText = 'Type something!'; return; }
+      box.innerText = 'JEN-X Thinking... 🤔';
+      try {
+        let res = '';
+        if (type === 'science') res = await fetchScience(q);
+        if (type === 'technology') res = await fetchTechnology(q);
+        if (type === 'engineering') res = await fetchEngineering(q);
+        if (type === 'maths') res = await fetchMaths(q);
+        box.innerText = res;
+      } catch (e) { box.innerText = 'Network error, try again.'; }
+    }
+
+    async function searchAll4() {
+      const q = document.getElementById('masterQ').value.trim();
+      if (!q) return alert('Type in master box first');
+      document.getElementById('sciQ').value = q; document.getElementById('techQ').value = q;
+      document.getElementById('engQ').value = q; document.getElementById('mathQ').value = q;
+      ['sciAns', 'techAns', 'engAns', 'mathAns'].forEach(id => document.getElementById(id).innerText = 'Thinking X4... 🤔');
+      try {
+        const s = await fetchScience(q); document.getElementById('sciAns').innerText = s;
+        const t = await fetchTechnology(q); document.getElementById('techAns').innerText = t;
+        const e = await fetchEngineering(q); document.getElementById('engAns').innerText = e;
+        const m = await fetchMaths(q); document.getElementById('mathAns').innerText = m;
+      } catch (e) { alert('Pollinations busy, click Run X4 again after 3 sec'); }
+    }
+  </script>
+</body>
+
+</html>
